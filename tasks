@@ -1,0 +1,25 @@
+#!/usr/local/bin/node
+const add = require('./commands/add')
+const list = require('./commands/list')
+const complete = require('./commands/complete')
+const deleteTask = require('./commands/delete')
+
+let command = process.argv[2]
+let input = process.argv.slice(3).join(' ')
+
+switch(command){
+  case 'add':
+    add(input)
+    break;
+  case 'complete':
+    complete(input);
+    break;
+  case 'list':
+    list();
+    break;
+  case 'delete':
+    deleteTask(input);
+    break;
+  default:
+    console.log('please provide command')
+}
